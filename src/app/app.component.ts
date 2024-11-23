@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {DynamicFormComponent} from './ui/dynamic-form/dynamic-form.component';
+import {FormService} from './data/services/forms/form.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, DynamicFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'form-app';
+  formService = inject(FormService);
+  formConfigSignal = toSignal(this.formService.getFormConfig());
 }

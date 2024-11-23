@@ -1,0 +1,9 @@
+<ng-container *ngIf="formGroup">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmitHandler($event)">
+    @if (formConfig) {
+      @for (field of formConfig.fields; track field) {
+      } @empty {
+      }
+    }
+  </form>
+</ng-container>
