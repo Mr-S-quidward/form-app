@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {toSignal} from '@angular/core/rxjs-interop';
-import {DynamicFormComponent} from './ui/dynamic-form/dynamic-form.component';
+import {DynamicFormComponent} from './presentation/dynamic-form/dynamic-form.component';
 import {FormService} from './infrastructure/services/forms/form.service';
 
 @Component({
