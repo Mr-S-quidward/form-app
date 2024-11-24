@@ -1,24 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @use "@angular/material" as mat;
+@import "assets/themes/light";
+@import "assets/themes/dark";
 
 @include mat.core();
-$theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$green-palette,
-  ),
-  typography: (
-    brand-family: 'Comic Sans',
-    bold-weight: 900
-  ),
-  density: (
-    scale: -1
-  )
-));
 
 html, body {
   height: 100%;
-  @include mat.all-component-themes($theme);
 }
 
 body {
