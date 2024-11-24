@@ -19,6 +19,7 @@ import {MatIcon} from '@angular/material/icon';
 import {MatButton} from '@angular/material/button';
 import {FormContainerComponent} from '../form-container/form-container.component';
 import {MatCardTitle} from '@angular/material/card';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -36,7 +37,8 @@ import {MatCardTitle} from '@angular/material/card';
     MatSuffix,
     MatButton,
     FormContainerComponent,
-    MatCardTitle
+    MatCardTitle,
+    NgxSkeletonLoaderModule
   ],
   templateUrl: './dynamic-form.component.html',
   styleUrl: './dynamic-form.component.scss',
@@ -62,4 +64,5 @@ export class DynamicFormComponent implements OnChanges {
   }
 
   protected readonly InputTypesEnum = InputTypesEnum;
+  protected readonly Array = Array;
 }
