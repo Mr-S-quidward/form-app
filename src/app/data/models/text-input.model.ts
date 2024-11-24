@@ -4,4 +4,6 @@ export interface TextInputModel extends BaseInputModel {
   regex?: string;
   minLength?: number;
   maxLength?: number;
+  showConfirmPassword?: boolean;
+  info?: string;
 }
