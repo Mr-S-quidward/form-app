@@ -1,7 +1,54 @@
 <ng-container *ngIf="formGroup">
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmitHandler($event)">
+  <form style="display: flex; flex-direction: column;" [formGroup]="formGroup" (ngSubmit)="onSubmitHandler($event)">
     @if (formConfig) {
-      @for (field of formConfig.fields; track field) {
+      @for (field of formConfig.fields;track field) {
+        @switch (field["type"]) {
+          @case (InputTypesEnum.text) {
+            <mat-form-field>
+              <mat-label>
+                {{ field["title"] }}
+              </mat-label>
+              <input matInput [type]="field['type']"
+                     [formControlName]="field['name']"
+                     [matTooltip]="field['description']">
+              @if (formGroup.get(field["name"])?.invalid) {
+                <mat-error>
+                  {{ field["errorMessage"] }}
+                </mat-error>
+              }
+            </mat-form-field>
+          }
+          @case (InputTypesEnum.newPassword) {
+            <mat-form-field>
+              <mat-label>
+                {{ field["title"] }}
+              </mat-label>
+              <input matInput [type]="field['type']"
+                     [formControlName]="field['name']"
+                     [matTooltip]="field['description']">
+              @if (formGroup.get(field["name"])?.invalid) {
+                <mat-error>
+                  {{ field["errorMessage"] }}
+                </mat-error>
+              }
+            </mat-form-field>
+<!--            @if (field["showConfirmPassword"]) {-->
+<!--              <mat-form-field>-->
+<!--                <mat-label>-->
+<!--                  {{ field["title"] }}-->
+<!--                </mat-label>-->
+<!--                <input matInput [type]="field['type']"-->
+<!--                       [formControlName]="field['name']"-->
+<!--                       [matTooltip]="field['description']">-->
+<!--                @if (formGroup.get(field["name"])?.invalid) {-->
+<!--                  <mat-error>-->
+<!--                    {{ field["errorMessage"] }}-->
+<!--                  </mat-error>-->
+<!--                }-->
+<!--              </mat-form-field>-->
+<!--            }-->
+          }
+        }
       } @empty {
       }
     }

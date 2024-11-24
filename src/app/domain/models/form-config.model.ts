@@ -4,8 +4,8 @@ export interface FormConfigModel {
   form: FormModel;
   steps: number;
   current: number;
-
-  [key: string]: any;
+  fieldErrors: {};
+  errors: [];
 }
 
 export interface FormModel {
