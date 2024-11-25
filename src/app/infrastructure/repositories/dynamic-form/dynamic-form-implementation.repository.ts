@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {DynamicFormRepository} from '../../../domain/repositories/dynamic-form.repository';
 import {DynamicFormImplementationRepoMapper} from './mappers/dynamic-form-repo.mapper';
 import {delay, map, Observable, of} from 'rxjs';
-import {DynamicFormModel} from '../../../domain/models/dynamic-form/dynamic-form.model';
+import {DynamicFormModel} from '../../../domain/models/dynamic-form.model';
 import {FormConfigConst} from '../../../domain/consts/form-config.const';
 
 @Injectable({

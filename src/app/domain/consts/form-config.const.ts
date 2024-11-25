@@ -1,4 +1,4 @@
-import {DynamicFormModel} from "../models/dynamic-form/dynamic-form.model";
+import {DynamicFormModel} from "../models/dynamic-form.model";
 
 export const FormConfigConst: DynamicFormModel = {
     "form": {

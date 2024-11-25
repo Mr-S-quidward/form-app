@@ -81,7 +81,7 @@
       </form>
     } @placeholder (minimum 3000ms) {
       <div style="display:flex; flex-direction: column; gap: 8px;">
-        @for (item of Array(6); track item) {
+        @for (item of Array(6); track $index) {
           <ngx-skeleton-loader [count]="1" [theme]="{height: '56px', width: '288px'}"/>
         }
       </div>

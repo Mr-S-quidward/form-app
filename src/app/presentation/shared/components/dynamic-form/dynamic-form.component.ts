@@ -7,7 +7,7 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import {FormBuilderUtil} from '../../../infrastructure/utils/form.builder.util';
+import {FormBuilderUtil} from '../../../../infrastructure/utils/form.builder.util';
 import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {MatError, MatFormField, MatLabel, MatSuffix} from '@angular/material/form-field';
@@ -18,7 +18,7 @@ import {MatButton} from '@angular/material/button';
 import {FormContainerComponent} from '../form-container/form-container.component';
 import {MatCardTitle} from '@angular/material/card';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {DynamicFormEntity} from '../../../infrastructure/repositories/dynamic-form/entities/dynamic-form.entity';
+import {DynamicFormEntity} from '../../../../infrastructure/repositories/dynamic-form/entities/dynamic-form.entity';
 
 @Component({
   selector: 'app-dynamic-form',

@@ -1,3 +1,3 @@
-<app-theme-mode [label]="'dark mode'"/>
+<app-theme-mode [label]="'dark mode'" (checked)="themeService.changeToDarkMode($event)"/>
 <app-dynamic-form [formConfig]="dynamicFormConfig()"/>
 

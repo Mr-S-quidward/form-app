@@ -9,8 +9,9 @@ import {
 import {DynamicFormGetConfigUseCase} from '../../../domain/use-cases/dynamic-form-get-config.usecase';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {RouterOutlet} from '@angular/router';
-import {DynamicFormComponent} from '../../shared/dynamic-form/dynamic-form.component';
-import {ThemeModeComponent} from '../../shared/theme-mode/theme-mode.component';
+import {DynamicFormComponent} from '../../shared/components/dynamic-form/dynamic-form.component';
+import {ThemeModeComponent} from '../../shared/components/theme-mode/theme-mode.component';
+import {ThemeService} from '../../shared/services/theme/theme.service';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -31,6 +32,7 @@ import {ThemeModeComponent} from '../../shared/theme-mode/theme-mode.component';
   styleUrl: './sign-up-page.component.scss'
 })
 export class SignUpPageComponent {
-  dynamicFormGetConfigUseCase = inject(DynamicFormGetConfigUseCase);
-  dynamicFormConfig = toSignal(this.dynamicFormGetConfigUseCase.execute());
+  themeService = inject(ThemeService);
+  private _dynamicFormGetConfigUseCase = inject(DynamicFormGetConfigUseCase);
+  dynamicFormConfig = toSignal(this._dynamicFormGetConfigUseCase.execute());
 }
