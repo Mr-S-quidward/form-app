@@ -10,13 +10,15 @@ import {DynamicFormGetConfigUseCase} from '../../../domain/use-cases/dynamic-for
 import {toSignal} from '@angular/core/rxjs-interop';
 import {RouterOutlet} from '@angular/router';
 import {DynamicFormComponent} from '../../shared/dynamic-form/dynamic-form.component';
+import {ThemeModeComponent} from '../../shared/theme-mode/theme-mode.component';
 
 @Component({
   selector: 'app-sign-up-page',
   standalone: true,
   imports: [
     RouterOutlet,
-    DynamicFormComponent
+    DynamicFormComponent,
+    ThemeModeComponent
   ],
   providers: [
     dynamicFormGetConfigUseCaseProvider,

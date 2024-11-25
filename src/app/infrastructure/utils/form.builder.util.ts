@@ -1,5 +1,5 @@
 import {FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
-import {FieldModel} from '../../domain/models/dynamic-form.model';
+import {FieldModel} from '../../domain/models/dynamic-form/dynamic-form.model';
 
 export class FormBuilderUtil {
   static buildForm(fields: FieldModel[]): FormGroup {

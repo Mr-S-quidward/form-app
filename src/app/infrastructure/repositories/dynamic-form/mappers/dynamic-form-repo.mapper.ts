@@ -1,6 +1,6 @@
 import {Mapper} from '../../../../base/utils/mapper';
 import {DynamicFormEntity} from '../entities/dynamic-form.entity';
-import {DynamicFormModel} from '../../../../domain/models/dynamic-form.model';
+import {DynamicFormModel} from '../../../../domain/models/dynamic-form/dynamic-form.model';
 
 export class DynamicFormImplementationRepoMapper extends Mapper<DynamicFormEntity, DynamicFormModel> {
 
