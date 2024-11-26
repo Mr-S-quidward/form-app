@@ -12,6 +12,13 @@ import {RouterOutlet} from '@angular/router';
 import {DynamicFormComponent} from '../../shared/components/dynamic-form/dynamic-form.component';
 import {ThemeModeComponent} from '../../shared/components/theme-mode/theme-mode.component';
 import {ThemeService} from '../../shared/services/theme/theme.service';
+import {buildInfoGetUseCaseProvider} from '../../../infrastructure/provide-use-cases/build-info/build-info-get.provide';
+import {BuildInfoRepository} from '../../../domain/repositories/build-info.repository';
+import {
+  BuildInfoImplementationRepository
+} from '../../../infrastructure/repositories/build-info/build-info-implementation-repository';
+import {BuildInfoGetUseCase} from '../../../domain/use-cases/build-info-get.usecase';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -19,13 +26,19 @@ import {ThemeService} from '../../shared/services/theme/theme.service';
   imports: [
     RouterOutlet,
     DynamicFormComponent,
-    ThemeModeComponent
+    ThemeModeComponent,
+    DatePipe
   ],
   providers: [
     dynamicFormGetConfigUseCaseProvider,
     {
       provide: DynamicFormRepository,
       useClass: DynamicFormImplementationRepository,
+    },
+    buildInfoGetUseCaseProvider,
+    {
+      provide: BuildInfoRepository,
+      useClass: BuildInfoImplementationRepository,
     }
   ],
   templateUrl: './sign-up-page.component.html',
@@ -34,5 +47,7 @@ import {ThemeService} from '../../shared/services/theme/theme.service';
 export class SignUpPageComponent {
   themeService = inject(ThemeService);
   private _dynamicFormGetConfigUseCase = inject(DynamicFormGetConfigUseCase);
+  private _buildInfoGetUseCase = inject(BuildInfoGetUseCase);
   dynamicFormConfig = toSignal(this._dynamicFormGetConfigUseCase.execute());
+  buildInfo = toSignal(this._buildInfoGetUseCase.execute());
 }

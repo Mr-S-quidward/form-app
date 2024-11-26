@@ -1,9 +1,10 @@
 import {UseCase} from '../base/use-case';
-import {DynamicFormModel} from '../models/dynamic-form.model';
 import {Observable} from 'rxjs';
 import {DynamicFormRepository} from '../repositories/dynamic-form.repository';
+import {DynamicFormEntity} from '../../infrastructure/repositories/dynamic-form/entities/dynamic-form.entity';
+import {DynamicFormModel} from '../models/dynamic-form.model';
 
-export class DynamicFormGetConfigUseCase implements UseCase<undefined, DynamicFormModel> {
+export class DynamicFormGetConfigUseCase implements UseCase<undefined, DynamicFormEntity> {
   constructor(private readonly dynamicFormRepository: DynamicFormRepository) {
   }
 

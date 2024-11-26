@@ -2,3 +2,11 @@
                 (checkedChange)="themeService.changeTheme($event)"/>
 <app-dynamic-form [formConfig]="dynamicFormConfig()"/>
 
+<div style="display:flex; gap: 24px;">
+  <span>
+v{{ buildInfo()?.version }}
+  </span>
+  <span>
+{{ buildInfo()?.date | date }}
+  </span>
+</div>
