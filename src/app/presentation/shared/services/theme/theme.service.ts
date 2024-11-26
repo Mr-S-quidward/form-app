@@ -1,4 +1,4 @@
-import {inject, Injectable, Renderer2, RendererFactory2} from '@angular/core';
+import {inject, Injectable, Renderer2, RendererFactory2, signal} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 
 @Injectable({
@@ -7,6 +7,7 @@ import {DOCUMENT} from '@angular/common';
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
   private readonly renderer2: Renderer2 = inject(RendererFactory2).createRenderer(null, null);
+  // isDarkModeOn = signal()
 
   changeToDarkMode(darkModeOn: boolean): void {
     if (darkModeOn) {
