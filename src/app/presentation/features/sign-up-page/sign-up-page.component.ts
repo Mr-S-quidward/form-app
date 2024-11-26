@@ -50,4 +50,5 @@ export class SignUpPageComponent {
   private _buildInfoGetUseCase = inject(BuildInfoGetUseCase);
   dynamicFormConfig = toSignal(this._dynamicFormGetConfigUseCase.execute());
   buildInfo = toSignal(this._buildInfoGetUseCase.execute());
+  date = new Date();
 }
