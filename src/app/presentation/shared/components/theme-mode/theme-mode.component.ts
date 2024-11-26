@@ -1,20 +1,28 @@
-import {Component, input, output} from '@angular/core';
+import {Component, input, OnInit, output} from '@angular/core';
 import {MatSlideToggle, MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-theme-mode',
   standalone: true,
   imports: [
-    MatSlideToggle
+    MatSlideToggle,
+    ReactiveFormsModule
   ],
   templateUrl: './theme-mode.component.html',
   styleUrl: './theme-mode.component.scss'
 })
-export class ThemeModeComponent {
+export class ThemeModeComponent implements OnInit {
   label = input<string>()
-  checked = output<boolean>();
+  checked = input.required<boolean>()
+  checkedChange = output<boolean>();
+  formControl = new FormControl<boolean>(false, {nonNullable: true});
+
+  ngOnInit() {
+    this.formControl.setValue(this.checked());
+  }
 
   onChangeHandler({checked}: MatSlideToggleChange): void {
-    this.checked.emit(checked);
+    this.checkedChange.emit(checked);
   }
 }
