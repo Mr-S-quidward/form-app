@@ -1,19 +1,22 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {DynamicFormRepository} from '../../../domain/repositories/dynamic-form.repository';
 import {DynamicFormImplementationRepoMapper} from './mappers/dynamic-form-repo.mapper';
-import {delay, map, Observable, of} from 'rxjs';
+import {delay, map, Observable, of, switchMap, tap} from 'rxjs';
 import {DynamicFormModel} from '../../../domain/models/dynamic-form.model';
-import {FormConfigConst} from '../../../domain/consts/form-config.const';
+import {HttpClient} from '@angular/common/http';
+import {DynamicFormEntity} from './entities/dynamic-form.entity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DynamicFormImplementationRepository extends DynamicFormRepository {
+  httpClient = inject(HttpClient);
   dynamicFormMapper = new DynamicFormImplementationRepoMapper();
 
-  override getDynamicFormConfig(): Observable<DynamicFormModel> {
-    return of(FormConfigConst).pipe(
-      delay(1000),
+  override getDynamicFormConfig(): Observable<DynamicFormEntity> {
+    return this.httpClient.get<DynamicFormModel>("/form-config.json").pipe(
+      delay(2000),
+      switchMap((value) => of(value)),
       map(this.dynamicFormMapper.mapFrom),
     );
   }
