@@ -37,6 +37,10 @@ export class TextInputComponent implements OnInit, OnDestroy {
   showPassword = signal<boolean>(false);
   showConfirmPassword = signal<boolean>(false);
 
+  // TODO i dont have much time to separate inputs more than this but i guess this should be enough
+  // TODO plus i know about controlValue accessor and how it plays a bridge for ngModel and FormModule which both extend sth called ngControl which has controlValueAccessor within
+  // TODO Bridge design pattern in Reactive forms
+
   ngOnInit() {
     this._addControlToParentControl(this.field.name);
     if (this.field.showConfirmPassword) this._addControlToParentControl("confirm" + this.field.name);
