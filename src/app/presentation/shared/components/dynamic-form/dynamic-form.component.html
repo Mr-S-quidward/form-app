@@ -9,7 +9,9 @@
             (ngSubmit)="onSubmitHandler($event)">
         @if (formConfig) {
           @for (field of formConfig.form.fields; track field.name) {
-            <app-text-input [field]="field"/>
+            @if (["text", "password"].includes(field.inputType)) {
+              <app-text-input [field]="field"/>
+            }
           } @empty {
           }
         }
