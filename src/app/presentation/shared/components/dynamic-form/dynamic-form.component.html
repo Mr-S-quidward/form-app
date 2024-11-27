@@ -5,83 +5,23 @@
       <mat-card-title *ngIf="formConfig">
         {{ formConfig.form.title }}
       </mat-card-title>
-      <form style="display: flex; flex-direction: column;" [formGroup]="formGroup!"
+      <form #form style="display: flex; flex-direction: column;" [formGroup]="formGroup!"
             (ngSubmit)="onSubmitHandler($event)">
         @if (formConfig) {
           @for (field of formConfig.form.fields; track field.name) {
-            @switch (field["@type"]) {
-              @case (".input.TextField") {
-                <mat-form-field>
-                  <mat-label>
-                    {{ field.title }}
-                  </mat-label>
-                  <input matInput [type]="field.type"
-                         [formControlName]="field.name"
-                         [matTooltip]="field.description">
-                  @if (formGroup!.get(field.name)?.invalid) {
-                    <mat-error>
-                      {{ field.errorMessage }}
-                    </mat-error>
-                  }
-                </mat-form-field>
-              }
-              @case (".input.NewPasswordField") {
-                <div style="display:flex; gap: 16px; align-items:center;"
-                     [style.height.px]="input._elementRef.nativeElement.getBoundingClientRect().height">
-                  <mat-form-field #input style="width: 100%;">
-                    <mat-label>
-                      {{ field.title }}
-                    </mat-label>
-                    <input matInput [type]="'password'"
-                           [formControlName]="field.name"
-                           [matTooltip]="field.description">
-                    @if (formGroup!.get(field.name)?.invalid) {
-                      <mat-error>
-                        {{ field.errorMessage }}
-                      </mat-error>
-                    }
-                    <mat-icon matSuffix>
-                      visibility
-                    </mat-icon>
-                    @if (field.info) {
-                      <mat-icon matSuffix [matTooltip]="field.info">
-                        info
-                      </mat-icon>
-                    }
-                  </mat-form-field>
-                </div>
-                @if (field.showConfirmPassword) {
-                  <mat-form-field>
-                    <mat-label>
-                      {{ "Confirm " + field.title }}
-                    </mat-label>
-                    <input matInput [type]="'password'"
-                           [formControlName]="'confirm'+field.name"
-                           [matTooltip]="field.description">
-                    @if (formGroup!.get('confirm' + field.name)?.invalid) {
-                      <mat-error>
-                        {{ field.errorMessage }}
-                      </mat-error>
-                    }
-                    @if (field.info) {
-                      <mat-icon matSuffix>
-                        visibility
-                      </mat-icon>
-                    }
-                  </mat-form-field>
-                }
-              }
-            }
+            <app-text-input [field]="field"/>
           } @empty {
           }
         }
-        <button mat-flat-button [disabled]="formGroup!.invalid">
-          {{ formConfig!.form.submitLabel }}
-        </button>
+        @if (formGroup) {
+          <button mat-flat-button [disabled]="formGroup.invalid">
+            {{ formConfig!.form.submitLabel }}
+          </button>
+        }
       </form>
     } @placeholder (minimum 3000ms) {
       <div style="display:flex; flex-direction: column; gap: 8px;">
-        @for (item of Array(6); track $index) {
+        @for (_ of Array(6); track $index) {
           <ngx-skeleton-loader [count]="1" [theme]="{height: '56px', width: '288px'}"/>
         }
       </div>

@@ -1,0 +1,43 @@
+<mat-form-field style="width: 100%;">
+  <mat-label>
+    {{ field.label }}
+  </mat-label>
+  <input matInput [type]="field.inputType"
+         [formControlName]="field.name"
+         [matTooltip]="field.description">
+  @if (parentFormGroup.get(field.name)?.invalid) {
+    <mat-error>
+      {{ field.errorMessage }}
+    </mat-error>
+  }
+  @if (["password"].includes(field.inputType)) {
+    <mat-icon matSuffix>
+      visibility
+    </mat-icon>
+  }
+  @if (field.info) {
+    <mat-icon matSuffix [matTooltip]="field.info">
+      info
+    </mat-icon>
+  }
+</mat-form-field>
+@if (field.showConfirmPassword) {
+  <mat-form-field style="width: 100%;">
+    <mat-label>
+      {{ "Confirm " + field.label }}
+    </mat-label>
+    <input matInput [type]="'password'"
+           [formControlName]="'confirm'+field.name"
+           [matTooltip]="field.description">
+    @if (parentFormGroup!.get('confirm' + field.name)?.invalid) {
+      <mat-error>
+        {{ field.errorMessage }}
+      </mat-error>
+    }
+    @if (field.info) {
+      <mat-icon matSuffix (click)="onClickVisibilityHandler($event)">
+        visibility
+      </mat-icon>
+    }
+  </mat-form-field>
+}

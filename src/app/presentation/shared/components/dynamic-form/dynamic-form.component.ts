@@ -5,9 +5,7 @@ import {
   Input,
   OnChanges,
   Output,
-  SimpleChanges
 } from '@angular/core';
-import {FormBuilderUtil} from '../../../../infrastructure/utils/form.builder.util';
 import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {MatError, MatFormField, MatLabel, MatSuffix} from '@angular/material/form-field';
@@ -18,7 +16,8 @@ import {MatButton} from '@angular/material/button';
 import {FormContainerComponent} from '../form-container/form-container.component';
 import {MatCardTitle} from '@angular/material/card';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {DynamicFormEntity} from '../../../../infrastructure/repositories/dynamic-form/entities/dynamic-form.entity';
+import {TextInputComponent} from '../inputs/text-input/text-input.component';
+import {DynamicFormModel} from '../../../../domain/models/dynamic-form.model';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -37,7 +36,8 @@ import {DynamicFormEntity} from '../../../../infrastructure/repositories/dynamic
     MatButton,
     FormContainerComponent,
     MatCardTitle,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    TextInputComponent
   ],
   templateUrl: './dynamic-form.component.html',
   styleUrl: './dynamic-form.component.scss',
@@ -47,13 +47,14 @@ export class DynamicFormComponent implements OnChanges {
   @Output()
   formValueEmitter = new EventEmitter();
   @Input()
-  formConfig: DynamicFormEntity | undefined;
+  formConfig: DynamicFormModel | undefined;
+
+  @Input()
+  supportedInputs: string[] = [];
   formGroup: FormGroup | undefined;
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.formConfig);
-    if (this.formConfig && this.formConfig.form.fields.length > 0)
-      this.formGroup = FormBuilderUtil.buildForm(this.formConfig.form.fields);
+  ngOnChanges() {
+    if (this.formConfig) this.formGroup = new FormGroup({});
   }
 
   onSubmitHandler($event: MouseEvent): void {
