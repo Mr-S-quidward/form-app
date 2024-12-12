@@ -20,28 +20,27 @@ import {TextInputComponent} from '../inputs/text-input/text-input.component';
 import {DynamicFormModel} from '../../../../domain/models/dynamic-form.model';
 
 @Component({
-  selector: 'app-dynamic-form',
-  standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    NgIf,
-    MatFormField,
-    MatLabel,
-    MatInput,
-    MatTooltip,
-    MatError,
-    MatIcon,
-    MatSuffix,
-    MatButton,
-    FormContainerComponent,
-    MatCardTitle,
-    NgxSkeletonLoaderModule,
-    TextInputComponent
-  ],
-  templateUrl: './dynamic-form.component.html',
-  styleUrl: './dynamic-form.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-dynamic-form',
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        NgIf,
+        MatFormField,
+        MatLabel,
+        MatInput,
+        MatTooltip,
+        MatError,
+        MatIcon,
+        MatSuffix,
+        MatButton,
+        FormContainerComponent,
+        MatCardTitle,
+        NgxSkeletonLoaderModule,
+        TextInputComponent
+    ],
+    templateUrl: './dynamic-form.component.html',
+    styleUrl: './dynamic-form.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DynamicFormComponent implements OnChanges {
   @Output()

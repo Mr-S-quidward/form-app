@@ -3,14 +3,13 @@ import {MatSlideToggle, MatSlideToggleChange} from '@angular/material/slide-togg
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-theme-mode',
-  standalone: true,
-  imports: [
-    MatSlideToggle,
-    ReactiveFormsModule
-  ],
-  templateUrl: './theme-mode.component.html',
-  styleUrl: './theme-mode.component.scss'
+    selector: 'app-theme-mode',
+    imports: [
+        MatSlideToggle,
+        ReactiveFormsModule
+    ],
+    templateUrl: './theme-mode.component.html',
+    styleUrl: './theme-mode.component.scss'
 })
 export class ThemeModeComponent implements OnInit {
   label = input<string>()

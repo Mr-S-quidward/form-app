@@ -9,26 +9,25 @@ import {FormBuilderUtil} from '../../../../../infrastructure/utils/form.builder.
 import {flush} from '@angular/core/testing';
 
 @Component({
-  selector: 'app-text-input',
-  standalone: true,
-  imports: [
-    MatError,
-    MatFormField,
-    MatIcon,
-    MatInput,
-    MatLabel,
-    MatSuffix,
-    ReactiveFormsModule,
-    MatTooltip
-  ],
-  templateUrl: './text-input.component.html',
-  styleUrl: './text-input.component.scss',
-  viewProviders: [
-    {
-      provide: ControlContainer,
-      useFactory: () => inject(ControlContainer, {skipSelf: true}),
-    }
-  ]
+    selector: 'app-text-input',
+    imports: [
+        MatError,
+        MatFormField,
+        MatIcon,
+        MatInput,
+        MatLabel,
+        MatSuffix,
+        ReactiveFormsModule,
+        MatTooltip
+    ],
+    templateUrl: './text-input.component.html',
+    styleUrl: './text-input.component.scss',
+    viewProviders: [
+        {
+            provide: ControlContainer,
+            useFactory: () => inject(ControlContainer, { skipSelf: true }),
+        }
+    ]
 })
 export class TextInputComponent implements OnInit, OnDestroy {
   @Input({required: true})

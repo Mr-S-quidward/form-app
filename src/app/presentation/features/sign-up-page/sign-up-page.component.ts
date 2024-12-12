@@ -14,22 +14,21 @@ import {ThemeModeComponent} from '../../shared/components/theme-mode/theme-mode.
 import {ThemeService} from '../../shared/services/theme/theme.service';
 
 @Component({
-  selector: 'app-sign-up-page',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    DynamicFormComponent,
-    ThemeModeComponent
-  ],
-  providers: [
-    dynamicFormGetConfigUseCaseProvider,
-    {
-      provide: DynamicFormRepository,
-      useClass: DynamicFormImplementationRepository,
-    }
-  ],
-  templateUrl: './sign-up-page.component.html',
-  styleUrl: './sign-up-page.component.scss'
+    selector: 'app-sign-up-page',
+    imports: [
+        RouterOutlet,
+        DynamicFormComponent,
+        ThemeModeComponent
+    ],
+    providers: [
+        dynamicFormGetConfigUseCaseProvider,
+        {
+            provide: DynamicFormRepository,
+            useClass: DynamicFormImplementationRepository,
+        }
+    ],
+    templateUrl: './sign-up-page.component.html',
+    styleUrl: './sign-up-page.component.scss'
 })
 export class SignUpPageComponent {
   themeService = inject(ThemeService);
