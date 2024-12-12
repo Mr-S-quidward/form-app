@@ -3,7 +3,8 @@
 @import "assets/themes/light";
 @import "assets/themes/dark";
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 html, body {
   height: 100%;
