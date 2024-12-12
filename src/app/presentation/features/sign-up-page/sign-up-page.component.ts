@@ -12,14 +12,16 @@ import {RouterOutlet} from '@angular/router';
 import {DynamicFormComponent} from '../../shared/components/dynamic-form/dynamic-form.component';
 import {ThemeModeComponent} from '../../shared/components/theme-mode/theme-mode.component';
 import {ThemeService} from '../../shared/services/theme/theme.service';
+import {TestComponentComponent} from '../../shared/components/test-component/test-component.component';
 
 @Component({
     selector: 'app-sign-up-page',
-    imports: [
-        RouterOutlet,
-        DynamicFormComponent,
-        ThemeModeComponent
-    ],
+  imports: [
+    RouterOutlet,
+    DynamicFormComponent,
+    ThemeModeComponent,
+    TestComponentComponent
+  ],
     providers: [
         dynamicFormGetConfigUseCaseProvider,
         {
