@@ -1,0 +1,17 @@
+<div [matBadge]="1"
+     [matBadgeSize]="'small'"
+     [matBadgePosition]="'above before'"
+     [style.width.rem]="width()"
+     [style.height.rem]="height()"
+     class="profile-icon">
+  @if (sourcePic()) {
+    <img [ngSrc]="sourcePic"
+         [width]="width().toString() + 'rem'"
+         [height]="height().toString() + 'rem'"
+         alt="prof-pic">
+  } @else {
+    <mat-icon>
+      person
+    </mat-icon>
+  }
+</div>

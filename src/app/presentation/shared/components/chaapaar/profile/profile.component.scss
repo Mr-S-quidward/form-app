@@ -1,0 +1,26 @@
+@use "@angular/material" as mat;
+
+.profile-icon {
+  background-color: dimgrey;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mat.badge-overrides(
+      (
+        //  base
+        small-size-container-size: 0.75rem,
+        small-size-line-height: 0.75rem,
+        small-size-container-overlap-offset: -1rem -0.75rem,
+        //small-size-container-offset: 1rem,
+        //small-size-container-padding: ,
+        //small-size-container-padding: ,
+        //  color
+        background-color: limegreen,
+        text-color: black,
+        //disabled-state-background-color:,
+        //disabled-state-text-color:,
+      )
+  )
+}
