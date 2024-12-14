@@ -1,0 +1,18 @@
+@if (desktop() || tablet()) {
+  <mat-sidenav-container [hasBackdrop]="false"
+                         class="main-content desktop">
+    <mat-sidenav opened
+                 [ngClass]="desktop() ? 'desktop' : 'tablet'"
+                 [position]="'end'"
+                 class="history">
+      moohtawa
+    </mat-sidenav>
+    <mat-sidenav-content
+      [ngClass]="desktop() ? 'desktop' : 'tablet'"
+      class="list desktop">
+      list
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+} @else if (mobile()) {
+
+}

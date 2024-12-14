@@ -19,6 +19,9 @@ import {
 import {SubMenuItemComponent} from '../../shared/components/chaapaar/sub-menu-item/sub-menu-item.component';
 import {SubMenuActionComponent} from '../../shared/components/chaapaar/sub-menu-action/sub-menu-action.component';
 import {MainMenuItemComponent} from '../../shared/components/chaapaar/main-menu-item/main-menu-item.component';
+import {
+  MainContentLayoutContainerComponent
+} from '../../shared/components/chaapaar/main-content-layout-container/main-content-layout-container.component';
 
 @Component({
     selector: 'app-sign-up-page',
@@ -30,7 +33,8 @@ import {MainMenuItemComponent} from '../../shared/components/chaapaar/main-menu-
     HeaderToolbarButtonComponent,
     SubMenuItemComponent,
     SubMenuActionComponent,
-    MainMenuItemComponent
+    MainMenuItemComponent,
+    MainContentLayoutContainerComponent
   ],
     providers: [
         dynamicFormGetConfigUseCaseProvider,

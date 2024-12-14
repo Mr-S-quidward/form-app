@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  height: 90%;
+  width: 80%;
+  background-color: red;
+}
+
+mat-sidenav-container.main-content.desktop {
+  height: 100%;
+  border-radius: 1.875rem;
+
+  mat-sidenav.history.desktop,
+  mat-sidenav.history.tablet {
+    border-radius: 1.875rem;
+    background-color: coral;
+  }
+
+  // desktop
+  mat-sidenav.history.desktop {
+    width: calc(100% - 20rem);
+  }
+
+  mat-sidenav-content.list.desktop {
+    width: 20rem;
+  }
+
+  //  tablet
+  mat-sidenav.history.tablet {
+    width: calc(100% - 19.375rem);
+  }
+
+  mat-sidenav-content.list.tablet {
+    width: 19.375rem;
+  }
+
+}
