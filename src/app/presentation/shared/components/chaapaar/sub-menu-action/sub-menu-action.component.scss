@@ -1,0 +1,42 @@
+@use '@angular/material' as mat;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sub-menu-action.desktop {
+  width: 100%;
+  min-width: 140px;
+
+  @include mat.button-overrides(
+      (
+        //  base
+        filled-container-shape: 100px,
+        filled-horizontal-padding: 20px,
+        //filled-icon-offset: 30px,
+        filled-icon-spacing: 12px,
+        //  color
+        filled-container-color: red,
+        filled-label-text-color: blue,
+        filled-disabled-container-color: gray,
+        filled-disabled-label-text-color: lightgrey,
+        //state
+        filled-state-layer-color: green,
+        filled-focus-state-layer-opacity: 10%,
+        filled-hover-state-layer-opacity: 50%,
+        filled-pressed-state-layer-opacity: 80%,
+        filled-disabled-state-layer-color:lightgreen,
+        filled-ripple-color: yellow,
+        //  typography
+        filled-label-text-font: arial,
+        filled-label-text-size: 18px,
+        //filled-label-text-tracking
+        //filled-label-text-weight
+        //filled-label-text-transform
+        //  density
+        filled-container-height: 56px,
+        //filled-touch-target-display
+      )
+  )
+}

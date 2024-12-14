@@ -1,0 +1,68 @@
+@use "@angular/material" as mat;
+
+.sub-menu-item.desktop {
+  width: 100%;
+
+  mat-expansion-panel {
+    box-shadow: none;
+  }
+
+  //mat-expansion-panel-header > span,
+  mat-panel-description,
+  mat-panel-title {
+    margin: 0;
+  }
+
+  mat-panel-description {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include mat.icon-overrides(
+      (
+        color: red,
+      )
+  );
+
+  @include mat.expansion-overrides(
+      (
+        //  base
+        container-shape: 16px,
+        //header-indicator-display: ,
+        //legacy-header-indicator-display: ,
+        //  color
+        container-background-color: brown,
+        header-text-color: red,
+        header-description-color: blue,
+        container-text-color: red,
+        actions-divider-color: green,
+        header-indicator-color: yellow,
+        //  state
+        header-hover-state-layer-color: black,
+        header-focus-state-layer-color: blue,
+        header-disabled-state-text-color: yellow,
+        //  typography
+        header-text-font: Roboto,
+        header-text-size: 24px,
+        header-text-weight: 900,
+        header-text-line-height: 0,
+        header-text-tracking: 3px,
+        container-text-font: Arial,
+        container-text-size: 6px,
+        container-text-line-height: 0,
+        container-text-weight: 300,
+        container-text-tracking: 1px,
+        //  density
+        header-collapsed-state-height: 56px,
+        header-expanded-state-height: 55px,
+      )
+  );
+}
+
+.sub-menu-item.desktop.clicked {
+  @include mat.expansion-overrides(
+      (
+        container-background-color: yellowgreen,
+      )
+  )
+}

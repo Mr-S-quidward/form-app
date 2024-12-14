@@ -12,7 +12,13 @@ import {RouterOutlet} from '@angular/router';
 import {DynamicFormComponent} from '../../shared/components/dynamic-form/dynamic-form.component';
 import {ThemeModeComponent} from '../../shared/components/theme-mode/theme-mode.component';
 import {ThemeService} from '../../shared/services/theme/theme.service';
-import {TestComponentComponent} from '../../shared/components/test-component/test-component.component';
+import {SearchFieldComponent} from '../../shared/components/chaapaar/search-field/search-field.component';
+import {
+  HeaderToolbarButtonComponent
+} from '../../shared/components/chaapaar/header-toolbar-button/header-toolbar-button.component';
+import {SubMenuItemComponent} from '../../shared/components/chaapaar/sub-menu-item/sub-menu-item.component';
+import {SubMenuActionComponent} from '../../shared/components/chaapaar/sub-menu-action/sub-menu-action.component';
+import {MainMenuItemComponent} from '../../shared/components/chaapaar/main-menu-item/main-menu-item.component';
 
 @Component({
     selector: 'app-sign-up-page',
@@ -20,7 +26,11 @@ import {TestComponentComponent} from '../../shared/components/test-component/tes
     RouterOutlet,
     DynamicFormComponent,
     ThemeModeComponent,
-    TestComponentComponent
+    SearchFieldComponent,
+    HeaderToolbarButtonComponent,
+    SubMenuItemComponent,
+    SubMenuActionComponent,
+    MainMenuItemComponent
   ],
     providers: [
         dynamicFormGetConfigUseCaseProvider,

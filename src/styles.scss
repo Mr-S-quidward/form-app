@@ -1,13 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'sass:map';
 @use '@angular/material' as mat;
-@import 'assets/themes/light';
-@import 'assets/themes/dark';
+@use 'assets/themes/theme-colors' as chaapaar-theme;
+//@import 'assets/themes/light';
+//@import 'assets/themes/dark';
 
 @include mat.elevation-classes();
 @include mat.app-background();
 
 html, body {
   height: 100%;
+  color-scheme: light dark;
+
+  @include mat.theme((
+    color:(
+      primary: chaapaar-theme.$primary-palette,
+      tertiary: chaapaar-theme.$tertiary-palette,
+    ),
+    typography:Roboto,
+    density: 0,
+  ));
+
+  @media (prefers-contrast: more) {
+    @include chaapaar-theme.high-contrast-overrides(color-scheme);
+  }
+
 }
 
 body {

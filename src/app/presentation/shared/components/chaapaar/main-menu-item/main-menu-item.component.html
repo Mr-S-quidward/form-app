@@ -1,0 +1,12 @@
+<button mat-fab extended
+        class="main-menu-item desktop"
+        [ngClass]="showLabel() ? '' : 'collapsed'"
+        [disabled]="disabled()"
+        (click)="showLabel.set(!showLabel())">
+  <mat-icon [matBadge]="badge()"
+            [matBadgeSize]="'medium'"
+            [matBadgePosition]="'above before'">
+    {{ icon() }}
+  </mat-icon>
+  {{ showLabel() ? buttonLabel() : '' }}
+</button>

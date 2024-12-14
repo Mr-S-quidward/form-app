@@ -1,0 +1,8 @@
+<button mat-mini-fab
+        [disabled]="disabled()"
+        (click)="onClickHandler($event)"
+        class="header-toolbar-button desktop">
+  <mat-icon>
+    {{ icon() }}
+  </mat-icon>
+</button>

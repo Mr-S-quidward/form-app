@@ -1,0 +1,70 @@
+@use "@angular/material" as mat;
+
+.main-menu-item.desktop {
+  transition: 300ms;
+
+  @include mat.badge-overrides(
+      (
+        //  base
+        container-shape: 50%,
+        container-size: 1rem,
+        container-offset: 6.25rem,
+        container-overlap-offset: -0.5rem -0.5rem,
+        //container-padding:
+        line-height: 1rem,
+        background-color: coral,
+        text-color: blue,
+        disabled-state-text-color: gray,
+        disabled-state-background-color: lightgrey,
+      )
+  );
+
+  @include mat.fab-overrides(
+      (
+        //  base
+        extended-container-shape: 6.25rem,
+        extended-container-height: 2.5rem,
+        //  color
+        container-color: transparent,
+        disabled-state-container-color: gray,
+        disabled-state-foreground-color: lightgrey,
+        //  states
+        state-layer-color: blue,
+        disabled-state-layer-color: gray,
+        hover-state-layer-opacity: 12%,
+        focus-state-layer-opacity: 12%,
+        pressed-state-layer-opacity: 16%,
+        extended-container-elevation-shadow: 0,
+        extended-focus-container-elevation-shadow: 0,
+        extended-hover-container-elevation-shadow: 0,
+        extended-pressed-container-elevation-shadow: 0,
+      )
+  );
+
+  @include mat.button-overrides(
+      (
+        text-container-height: 2.5rem,
+        text-container-shape: 6.25rem,
+        text-horizontal-padding: 0,
+        text-with-icon-horizontal-padding: 0,
+        text-icon-spacing: -0.125rem,
+        //text-icon-offset: 0,
+      )
+  )
+}
+
+.main-menu-item.desktop.collapsed {
+  mat-icon {
+    margin: 0;
+  }
+}
+
+.main-menu-item.desktop.clicked {
+
+  @include mat.fab-overrides();
+  @include mat.button-overrides(
+      (
+        text-icon-spacing: 0.5rem,
+      )
+  )
+}
