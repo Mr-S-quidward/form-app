@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  height: 5.75rem;
+  gap: 1rem;
+  background: linear-gradient(to right, aquamarine, white);
+  align-items: center;
+  padding: 1rem;
+  border-radius: 1.25rem;
+
+  p {
+    margin: 0;
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  p:first-child {
+    color: var(--mat-sys-on-surface);
+    margin-bottom: 0.5rem;
+  }
+}

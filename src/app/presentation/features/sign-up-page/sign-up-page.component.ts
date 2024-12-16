@@ -23,6 +23,7 @@ import {
   MainContentLayoutContainerComponent
 } from '../../shared/components/chaapaar/main-content-layout-container/main-content-layout-container.component';
 import {ProfileComponent} from '../../shared/components/chaapaar/profile/profile.component';
+import {ProfilePanelComponent} from '../../shared/components/profile-panel/profile-panel.component';
 
 @Component({
     selector: 'app-sign-up-page',
@@ -36,7 +37,8 @@ import {ProfileComponent} from '../../shared/components/chaapaar/profile/profile
     SubMenuActionComponent,
     MainMenuItemComponent,
     MainContentLayoutContainerComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfilePanelComponent
   ],
     providers: [
         dynamicFormGetConfigUseCaseProvider,
