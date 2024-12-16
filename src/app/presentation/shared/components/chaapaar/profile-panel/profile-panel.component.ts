@@ -1,5 +1,5 @@
 import {Component, input} from '@angular/core';
-import {ProfileComponent} from '../chaapaar/profile/profile.component';
+import {ProfileComponent} from '../profile/profile.component';
 
 @Component({
   selector: 'app-profile-panel',

@@ -7,6 +7,9 @@
 @include mat.elevation-classes();
 @include mat.app-background();
 
+*, html {
+  box-sizing: border-box;
+}
 
 html, body {
   height: 100%;

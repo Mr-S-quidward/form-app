@@ -1,0 +1,17 @@
+<app-profile [badgePosition]="'below after'" [height.rem]="2.5" [width.rem]="2.5"/>
+<div class="chat-list-item-content"
+     [matBadge]="32">
+  <div>
+    <span>{{ name() }}</span>
+    <span>{{ shortenedMessage() }}</span>
+  </div>
+  <div>
+    <div class="message-state-frame">
+      <app-message-receiving-status [status]="MessageReceivingStatusEnum.received"/>
+      <span>{{ date | date: 'yyyy/MM/dd' }}</span>
+    </div>
+    <div class="mute-state-frame">
+      <app-chat-notifying-status [status]="ChatNotifyingStatusEnum.mute"/>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<mat-icon>
+        <span class="material-symbols-outlined">
+          @switch (status()) {
+            @case (MessageReceivingStatusEnum.error) {
+              error
+            }
+            @case (MessageReceivingStatusEnum.pending) {
+              schedule
+            }
+            @case (MessageReceivingStatusEnum.sent) {
+              check
+            }
+            @case (MessageReceivingStatusEnum.received) {
+              done_all
+            }
+            @case (MessageReceivingStatusEnum.seen) {
+              done_all
+            }
+          }
+        </span>
+</mat-icon>
