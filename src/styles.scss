@@ -1,30 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'sass:map';
 @use '@angular/material' as mat;
-@use 'assets/themes/theme-colors' as chaapaar-theme;
-//@import 'assets/themes/light';
-//@import 'assets/themes/dark';
+@use 'assets/themes/light-theme' as light-chaapaar-theme;
+@use 'assets/themes/dark-theme' as dark-chaapaar-theme;
 
 @include mat.elevation-classes();
 @include mat.app-background();
 
+
 html, body {
   height: 100%;
   color-scheme: light dark;
+}
 
-  @include mat.theme((
-    color:(
-      primary: chaapaar-theme.$primary-palette,
-      tertiary: chaapaar-theme.$tertiary-palette,
-    ),
-    typography:Roboto,
-    density: 0,
-  ));
-
-  @media (prefers-contrast: more) {
-    @include chaapaar-theme.high-contrast-overrides(color-scheme);
+@media (prefers-color-scheme: light) {
+  html, body {
+    @include mat.theme((
+      color: (
+        primary: light-chaapaar-theme.$primary-palette,
+        tertiary: light-chaapaar-theme.$tertiary-palette,
+        theme-type: light,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+    @include mat.theme-overrides(
+        (
+          //background: cyan,
+          on-background: red,
+        )
+    );
+    @media (prefers-contrast: more) {
+      @include light-chaapaar-theme.high-contrast-overrides(color-scheme);
+    }
   }
+}
 
+@media (prefers-color-scheme: dark) {
+  html, body {
+    @include mat.theme((
+      color: (
+        primary: dark-chaapaar-theme.$primary-palette,
+        tertiary: dark-chaapaar-theme.$tertiary-palette,
+        theme-type: dark,
+      ),
+    ));
+    @media (prefers-contrast: more) {
+      @include dark-chaapaar-theme.high-contrast-overrides(color-scheme);
+    }
+  }
 }
 
 body {

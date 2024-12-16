@@ -203,10 +203,11 @@ $tertiary-palette: map.merge(map.get($_palettes, tertiary), $_rest);
   ))
 }
 
-$light-theme: mat.define-theme((
+$theme: mat.define-theme((
   color:(
     primary: $primary-palette,
     tertiary: $tertiary-palette,
+    theme-type: light,
   ),
   typography:(
     brand-family: Roboto

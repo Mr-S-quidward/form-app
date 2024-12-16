@@ -1,11 +1,9 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
-//@use 'assets/themes/theme-colors' as chaapaar-theme;
 
 :host {
   display: block;
   width: 100%;
-  height: 100%;
 }
 
 mat-form-field {
